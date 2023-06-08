@@ -1,8 +1,18 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
+import tkinter as tk
+from tkinter import filedialog
 
 MAX_WIN_SIZE = 1000
+
+
+def select_file():
+    root = tk.Tk()
+    root.withdraw()
+
+    file_path = filedialog.askopenfilename()
+    return file_path
 
 
 def show_mask(mask, ax, random_color=False):
@@ -82,7 +92,7 @@ def adjust_histogram_gui(image):
     return adjusted_image
 
 
-def annotate_image_gui(image):
+def annotate_image_gui(image, mode='point'):
     """
     Annotate an image with points and boxes
 
@@ -109,7 +119,8 @@ def annotate_image_gui(image):
     unscaled_boxes = []  # To store unscaled boxes
 
     # Flag to indicate annotation mode (True for points, False for boxes)
-    point_mode = True
+    point_mode = True if mode == 'point' else False
+
 
     # Zoom parameters
     zoom_factor = 1.0
