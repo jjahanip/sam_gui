@@ -9,5 +9,8 @@ conda env create -f environment.yml
 
 ## Modules:
 ### 1. Semantic Segmentation using point annotator
+To run the module, double click `run_point_segmentation.bat`.
+
 ### 2. Innstance Segmentation using box annotator
+To run the module, double click `run_box_segmentation.bat`.
 
